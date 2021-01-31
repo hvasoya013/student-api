@@ -34,6 +34,11 @@ router.patch("/students/:id",async(req,res)=>{
     try{
          const student = await Student.findOne({_id:req.params.id});
          student.name = req.body.name;
+         student.Marks = req.body.Marks,
+         student.City = req.body.City,
+         student.Contact = req.body.Contact,
+         student.ERNO = req.body.ERNO,
+         student.Study = req.body.Study
          
          await student.save();
          res.send(student);
